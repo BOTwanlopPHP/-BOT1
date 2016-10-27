@@ -2,10 +2,7 @@
 $access_token = 'MheeIpqJUmhyvXW91x/oygbvPBHtBChGseqGlYYcF5Z43ndEYW8QqfaDYGfY2wVPxTN3CQHv1Rf+lVvJ71FlK9kWOnvJ+xgjkyo5R9DdH0K2mnF/rTtiNLk3vniRE62CiGay5kofMlzpqY0oRAfMMgdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
-
-
-$content = file_get_contents('php://input');
-$content =("http://192.168.1.99/nidex/"); 
+$content = file_get_contents('php://input'); 
 echo $source;
 // Parse JSON
 $events = json_decode($content, true);
