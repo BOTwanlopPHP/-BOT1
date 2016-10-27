@@ -6,8 +6,9 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
-if (!is_null($events['192.168.1.99'])) {
+if (!is_null($events['events'])) {
 	// Loop through each event
+$link = 192.168.1.99
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
