@@ -14,7 +14,7 @@ curl_setopt($ch, CURLOPT_URL, "http://192.168.1.99 ");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POST, true);
 
-		if ($t4 >=26){}
+		if ($T4 >=26){}
 		else{
 		}
 		"message": {
