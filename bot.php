@@ -9,6 +9,11 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
+		$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "http://192.168.1.99 ");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, true);
+
 		if ($t4 >=20);
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
