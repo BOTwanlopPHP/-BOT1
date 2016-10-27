@@ -1,3 +1,1 @@
-
-$source = file_get_contents('https://nuuneoi.com/blog/blog.php?read_id=882');
-echo $source;
+<base href="http://fund.dgr.go.th/rent/">
