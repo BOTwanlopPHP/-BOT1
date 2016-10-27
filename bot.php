@@ -23,12 +23,6 @@ curl_setopt($ch, CURLOPT_POST, true);
              "text": "Hello, world"
           }
 		
-		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
-			$text = $event['message']['text'];
-			// Get replyToken
-			$replyToken = $event['replyToken'];
 
 	
 
