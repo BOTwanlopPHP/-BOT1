@@ -14,7 +14,7 @@ curl_setopt($ch, CURLOPT_URL, "http://192.168.1.99 ");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POST, true);
 
-		if ($t4 >=20);
+		if ($t4 >=26);
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
@@ -22,11 +22,22 @@ curl_setopt($ch, CURLOPT_POST, true);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
+			curl -X POST \
+-H 'Content-Type:application/json' \
+-H 'Authorization: Bearer {ENTER_ACCESS_TOKEN}' \
+-d '{
+    
+    "messages":[
+        {
+            "type":"text",
+            "text":"Hello, user"
+        },
+        {
+            "type":"text",
+            "text":"May I help you?"
+        }
+    ]
+}' https://api.line.me/v2/bot/message/repl
 
 		}
 	}
