@@ -5,7 +5,7 @@ $access_token = 'MheeIpqJUmhyvXW91x/oygbvPBHtBChGseqGlYYcF5Z43ndEYW8QqfaDYGfY2wV
 
 
 $content = file_get_contents('php://input');
-< $link ="http://192.168.1.99/nidex/" >
+$content =("http://192.168.1.99/nidex/"); 
 echo $source;
 // Parse JSON
 $events = json_decode($content, true);
