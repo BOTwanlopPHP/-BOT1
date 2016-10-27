@@ -9,6 +9,9 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 $link = 192.168.1.99
+<br/>
+<a href="index"><h4>Home</h4></a><br/>
+</center>
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
