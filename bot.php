@@ -22,24 +22,5 @@ curl_setopt($ch, CURLOPT_POST, true);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			curl -X POST \
--H 'Content-Type:application/json' \
--H 'Authorization: Bearer {ENTER_ACCESS_TOKEN}' \
--d '{
-    
-    "messages":[
-        {
-            "type":"text",
-            "text":"Hello, user"
-        },
-        {
-            "type":"text",
-            "text":"May I help you?"
-        }
-    ]
-}' https://api.line.me/v2/bot/message/repl
-
-		}
-	}
-}
+	
 
