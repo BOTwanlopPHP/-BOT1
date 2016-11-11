@@ -7,4 +7,12 @@ class DB {
   public static $host = 'localhost';
   public static $port = 3306; //hhvm complains if this is null
   public static $encoding = 'room1';
+  
+  // internal
+  public $internal_mysql = null;
+  public $server_info = null;
+  public $id = 1;
+  public $curdate = " ";
+  public $curtime = " ";
+  public $status = 10,1;
   ?>
