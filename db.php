@@ -9,8 +9,6 @@ class DB {
   public static $encoding = 'room1';
   
   // internal
-  public $internal_mysql = null;
-  public $server_info = null;
   public $id = 1;
   public $curdate = " ";
   public $curtime = " ";
