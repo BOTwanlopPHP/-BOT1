@@ -6,6 +6,7 @@ $content = file_get_contents('php://input');
 echo $source;
 // Parse JSON
 $events = json_decode($content, true);
+///
 ini_set('display_errors', 1);
 error_reporting(~0);
 $serverName = "localhost";
@@ -14,13 +15,6 @@ $userPassword = "root";
 $dbName = "bee";
 $connectionInfo = array("Database"=>$dbName, "UID"=>$userName, "PWD"=>$userPassword, "MultipleActiveResultSets"=>true);
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
-if($conn)
-echo "Database Connected.";
-else
-{
-die( print_r( sqlsrv_errors(), true));
-}
-sqlsrv_close($conn);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
