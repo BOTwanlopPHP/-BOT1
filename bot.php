@@ -6,6 +6,20 @@ $content = file_get_contents('php://input');
 echo $source;
 // Parse JSON
 $events = json_decode($content, true);
+$host = 'localhost';	//ใส่ตาม Server name ในรูปข้างบน
+	$user = 'root';			//ใส่ตาม Login
+	$pass = 'root';		//ใส่ตาม Password
+
+	$objConnect = mssql_connect($bee,$user,$pass);
+	if($objConnect) {
+		echo "Database Connected.";
+	}
+	else {
+		echo "Database Connect Failed.";
+	}
+
+	mssql_close($room1);
+?>
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
