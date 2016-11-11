@@ -7,14 +7,15 @@ echo $source;
 // Parse JSON
 $events = json_decode($content, true);
 ///
-ini_set('display_errors', 1);
-error_reporting(~0);
-$serverName = "localhost";
-$userName = "root";
-$userPassword = "root";
-$dbName = "bee";
-$connectionInfo = array("Database"=>$dbName, "UID"=>$userName, "PWD"=>$userPassword, "MultipleActiveResultSets"=>true);
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
+class DB {
+  // initial connection
+  public static $dbName = 'bee';
+  public static $user = 'root';
+  public static $password = 'root';
+  public static $host = 'localhost';
+  public static $port = 3306; //hhvm complains if this is null
+ 
+  
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
