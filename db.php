@@ -1,5 +1,5 @@
 <?php
-require_once('MySQL.php');
+require_once('db.php');
 
 try {
     $mysql = new MySQL('host', 'root', 'root', 'bee');
