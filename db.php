@@ -1,23 +1,29 @@
 <?php
-error_reporting(0);
-function runSQL($rsql) {
-    $hostname = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname   = "bee";
-    $connect = mysql_connect($hostname,$username,$password) or die ("Error: could not connect to database");
-    $db = mysql_select_db($dbname);
-    mysql_query("set character set utf8");     
-    $result = mysql_query($rsql) or die ('Error: could not query data' . $rsql); 
-    return $result;
-    mysql_close($connect);
-}
-function countRec($fname,$tname,$where) {
-    $sql = "SELECT count($fname) FROM $tname $where";
+header("Content-type: text/html; charset=UTF-8");
+    header('Cache-Control: no-cache');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    include("bot.php");
+    $where = "";
+    $sql = "SELECT bee.id AS id,curdatee,curtime,status  GROUP BY bee.id $where";
     $result = runSQL($sql);
-    while ($row = mysql_fetch_array($result)) {
-        return $row[0];
+    $numrow = countRec('id','curdatee','curtime','status'',$where);
+    if($numrow>0){
+        $json = "";
+        $json .= "{";
+        $json .= "\"aaData\":[";
+        $rc = false;
+        while ($row = mysql_fetch_array($result)) {
+            if ($rc) $json .= ",";
+            $json .= "[";
+            $json .= "\"".$row['curdatee']."\"";
+            $json .= ",\"".number_format($row['curtime'])."\"";
+            $json .= ",\"".number_format($row['status'])."\"]";
+            $rc = true;
+        }
+            $json .= "]";
+            $json .= "}";
+            echo $json;
     }
-}
 echo "OK";
 ?>
