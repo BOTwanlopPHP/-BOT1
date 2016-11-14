@@ -19,4 +19,5 @@ function countRec($fname,$tname,$where) {
         return $row[0];
     }
 }
+echo "OK";
 ?>
