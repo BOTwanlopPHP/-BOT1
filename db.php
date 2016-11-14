@@ -1,13 +1,14 @@
 <?php
-# Fill our vars and run on cli
-# $ php -f db-connect-test.php
-$dbname = 'bee';
-$dbuser = 'root';
-$dbpass = 'root';
-$dbhost = 'localhost';
-$connect = mysql_connect($dbhost, $dbuser, $dbpass) or die("Unable to Connect to '$dbhost'");
-mysql_select_db($dbname) or die("Could not open the db '$dbname'");
-
-
-
-
+error_reporting(0);
+function runSQL($rsql) {
+    $hostname = "localhost";
+    $username = "root";
+    $password = "root";
+    $dbname   = "bee";
+    $connect = mysql_connect($hostname,$username,$password) or die ("Error: could not connect to database");
+    $db = mysql_select_db($dbname);
+    mysql_query("set character set utf8");     
+    $result = mysql_query($rsql) or die ('Error: could not query data' . $rsql); 
+    return $result;
+    mysql_close($connect);
+}
