@@ -12,3 +12,11 @@ function runSQL($rsql) {
     return $result;
     mysql_close($connect);
 }
+function countRec($fname,$tname,$where) {
+    $sql = "SELECT count($fname) FROM $tname $where";
+    $result = runSQL($sql);
+    while ($row = mysql_fetch_array($result)) {
+        return $row[0];
+    }
+}
+?>
