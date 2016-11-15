@@ -90,8 +90,5 @@ if(!empty($result)){
     foreach ($result as $field) {
        echo '<option value="' . $field->id . '">' . $field->status . '</option>';
     }
-}
- 
 
-}
 ?>
