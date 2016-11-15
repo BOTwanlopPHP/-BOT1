@@ -13,11 +13,11 @@ function runSQL($rsql) {
     return $result;
     mysql_close($connect);
 }
-function countRec($fname,$tname,$where) {
-    $sql = "SELECT room1($id) FROM $tname $where";
+function countRec($id,$curdate,$curtime,$status) {
+    $sql = "SELECT count($room1) FROM $id $curdate $curtime $status";
     $result = runSQL($sql);
     while ($row = mysql_fetch_array($result)) {
-        return $row[0];
+        return $row[0],$row[1],$row[2],$row[3];
     }
 }
 
