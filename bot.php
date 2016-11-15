@@ -14,7 +14,7 @@ function runSQL($rsql) {
     mysql_close($connect);
 }
 function countRec  ($room1,$id,$curdate,$curtime,$status){
-    echo '<option value="' . $id->id . '">' . $curdatet->curdate . '</option>';
+    echo '<option value="' . $id->id . '">' . $status->status . '</option>';
     $sql = "SELECT count($room1) FROM $id $curdate $curtime $status";
     $result = runSQL($sql);
     while ($row = mysql_fetch_array($result)) {
@@ -70,5 +70,5 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo '<option value="' . $id->id . '">' . $curdatet->curdate . '</option>';
+echo "echo";
 
