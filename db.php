@@ -74,12 +74,7 @@ class DB {
          
          $result =  $database->query("SELECT * FROM room1")->findAll();
  
-// ตรวจสอบ
-if(!empty($result)){
-    // พบข้อมูล
-    foreach ($result as $field) {
-       echo '<option value="' . $field->id . '">' . $field->status . '</option>';
-           }
+
         }
     }
 }
