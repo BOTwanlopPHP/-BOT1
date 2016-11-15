@@ -17,7 +17,7 @@ function countRec($room1,$id,$curdate,$curtime,$status) {
     $sql = "SELECT count($room1) FROM $id $curdate $curtime $status";
     $result = runSQL($sql);
     while ($row = mysql_fetch_array($result)) {
-        return $row[0];
+        return $row[0],$row[1],$row[2],$row[3];
     }
 }
 
