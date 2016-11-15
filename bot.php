@@ -14,7 +14,7 @@ function runSQL($rsql) {
     mysql_close($connect);
 }
 function countRec($fname,$tname,$where) {
-    $sql = "SELECT room1($fname) FROM $tname $where";
+    $sql = "SELECT room1($id) FROM $tname $where";
     $result = runSQL($sql);
     while ($row = mysql_fetch_array($result)) {
         return $row[0];
