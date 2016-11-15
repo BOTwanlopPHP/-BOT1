@@ -14,8 +14,7 @@ mysql_query("SET character_set_connection=utf8");
 
 $query = "select * from room1";
 $data = mysql_query($query); //query ข้อมูล
-while($show = mysql_fetch_array($data)){
-	echo $show[0]." ".$show[1]." ".$show[2]."
-"; //โชว์ข้อมูล
+while($show = mysql_fetch_object($data)){
+	echo "$show->id." ".$show->curdate." ".$show->curtime." ".$show->status.";
 }
 ?>
