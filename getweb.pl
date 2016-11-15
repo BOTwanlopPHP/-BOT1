@@ -1,23 +1,73 @@
-#!/user/bin/perl -w
-##user strict;
-require IO::Socket;
-
-my $url = '192.168.1.99';
-my $socket = IO::Socket::INET->new(
-Proto => 'tcp',
-PeerAddr => $url,
-PeerPort => 80)||die "[!] Can not connect...\n";
-print"Connecting to $url\n";
-print $socket"GET /&HTTP/1.0\n\n";
-
-$socket->recv(my $data,1024);
-print"$data\n";
-close($socket);
-@bee=split(/\n/,$data);
-print "$bee[4]\n\n";
-@mine=split(/\|/,$bee[4]);
-print "$mine[0]  \n";
-print "$mine[1]  \n";
-print "$mine[2]  \n";
-print "$mine[3]  \n";
-
+include_once 'db.php';
+                         
+$database = new DB();
+ 
+/*====================================================
+ * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
+ ===================================================== */
+$result =  $database->query("SELECT * FROM room1")->findAll();
+ 
+// ตรวจสอบ
+if(!empty($result)){
+    // พบข้อมูล
+    foreach ($result as $field) {
+       echo '<option value="' . $field->id . '">' . $field->status . '</option>';
+    }
+}
+ 
+/*====================================================
+ * ดึงข้อมูลที่ค้นหาเจอออกมา 1 รายการ
+ ===================================================== */
+  
+$result =  $database->query("SELECT * FROM room1")->find();
+ 
+// ตรวจสอบ
+if(!empty($result)){
+    // พบข้อมูล
+    echo '<option value="' . $result->id . '">' . $result->status . '</option>';
+}
+ 
+/*====================================================
+ * เพิ่มข้อมูล
+ ===================================================== */
+  
+$result =  $database->query("INSERT INTO room1 (id,status) VALUES (1,'room1') ")->getStatus();
+ 
+// ตรวจสอบ
+if(!empty($result)){
+    // บันทึกสำเร็จ
+    // ......
+}else{
+    // บันทึกไม่สำเร็จ
+    // ......
+}
+ 
+/*====================================================
+ * แก้ไขข้อมูล
+ ===================================================== */
+  
+$result =  $database->query("UPDATE room1 SET status = 'Eakkabin Jaikeawma' WHERE id = 1 ")->getStatus();
+ 
+// ตรวจสอบ
+if(!empty($result)){
+    // แก้ไขสำเร็จ
+    // ......
+}else{
+    // แก้ไขไม่สำเร็จ
+    // ......
+}
+ 
+/*====================================================
+ * ลบข้อมูล
+ ===================================================== */
+  
+$result =  $database->query("DELETE FROM room1 WHERE id = 1")->getStatus();
+ 
+// ตรวจสอบ
+if(!empty($result)){
+    // ลบสำเร็จ
+    // ......
+}else{
+    // ลบไม่สำเร็จ
+    // ......
+}
