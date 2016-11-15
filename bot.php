@@ -13,8 +13,8 @@ function runSQL($rsql) {
     return $result;
     mysql_close($connect);
 }
-function countRec  ($room1,$id,$curdate,$curtime,$status) 
-echo 'This is D '.$room1,$id,$curdate,$curtime,$status.' ---';{
+function countRec  ($room1,$id,$curdate,$curtime,$status) {
+	echo;
     $sql = "SELECT count($room1) FROM $id $curdate $curtime $status";
     $result = runSQL($sql);
     while ($row = mysql_fetch_array($result)) {
