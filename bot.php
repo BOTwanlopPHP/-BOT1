@@ -13,7 +13,8 @@ function runSQL($rsql) {
     return $result;
     mysql_close($connect);
 }
-function countRec  ($room1,$id,$curdate,$curtime,$status) {
+function countRec  ($room1,$id,$curdate,$curtime,$status){
+    echo '<option value="' . $id->id . '">' . $curdatet->curdate . '</option>';
     $sql = "SELECT count($room1) FROM $id $curdate $curtime $status";
     $result = runSQL($sql);
     while ($row = mysql_fetch_array($result)) {
