@@ -1,29 +1,21 @@
 <?php
-header("Content-type: text/html; charset=UTF-8");
-    header('Cache-Control: no-cache');
-    header('Pragma: no-cache');
-    header('Expires: 0');
-    include("bot.php");
-    $where = "";
-    $sql = "SELECT bee.id AS id,curdatee,curtime,status  GROUP BY bee.id $where";
-    $result = runSQL($sql);
-    $numrow = countRec('id','curdatee','curtime','status'',$where);
-    if($numrow>0){
-        $json = "";
-        $json .= "{";
-        $json .= "\"aaData\":[";
-        $rc = false;
-        while ($row = mysql_fetch_array($result)) {
-            if ($rc) $json .= ",";
-            $json .= "[";
-            $json .= "\"".$row['curdatee']."\"";
-            $json .= ",\"".number_format($row['curtime'])."\"";
-            $json .= ",\"".number_format($row['status'])."\"]";
-            $rc = true;
-        }
-            $json .= "]";
-            $json .= "}";
-            echo $json;
-    }
-echo "OK";
+$host = "localhost"; // ชื่อ host หรือ ip ที่ใช้
+$userhost = "root"; // ชื่อ user ที่ใช้ในการล็อกอิน
+$passhost = "root"; // password ที่ใช้ในการล็อกอิน
+$database = "bee"; // ชื่อ Database
+$conn = mysql_connect($host,$userhost,$passhost);
+if(!$conn){
+	echo "ไม่สามารถเชื่อมต่อฐานข้อมูลได้";
+}
+mysql_query("use $database"); // เลือกฐานข้อมูลที่ใช้
+mysql_query("SET character_set_results=utf8");
+mysql_query("SET character_set_client=utf8");
+mysql_query("SET character_set_connection=utf8");
+
+$query = "select * from room1";
+$data = mysql_query($query); //query ข้อมูล
+while($show = mysql_fetch_array($data)){
+	echo $show[0]." ".$show[1]." ".$show[2]."
+"; //โชว์ข้อมูล
+}
 ?>
