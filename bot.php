@@ -45,7 +45,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => '$status'
+				'text' => 'type',
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -67,16 +67,10 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-			$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('<channel access token>');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '<channel secret>']);
-
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
-$response = $bot->replyMessage('<replyToken>', $textMessageBuilder);
-
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+			
 		}
 	}
 }
 
-echo "echo";
+echo "OK";
 
