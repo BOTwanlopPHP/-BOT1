@@ -14,10 +14,10 @@ if ($conn->connect_error) {
 $sql = "SELECT id, curdate, curtime, status   FROM room1";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+if ($result->num_rows > 4) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["curdate"]. " " . $row["curtime	"]. "<br>";
+        echo "id: " . $row["id"]. " - Name: " . $row["curdate"]. "-w: " . $row["curtime"]. "-L:" . $row["status"]. "<br>";
     }
 } else {
     echo "0 results";
