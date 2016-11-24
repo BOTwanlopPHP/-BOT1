@@ -25,7 +25,7 @@ echo "OK0000";
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => '$textww'
 			];
 			//$messages1 = [' '];
 
